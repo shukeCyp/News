@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="NewsType">
+        <variable
+            name="mMine"
+            type="com.shuke.homepage.guide.view.NewsTypeActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="250dp"
+            android:layout_centerHorizontal="true"
+            android:text="选择您感兴趣的分类"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.shuke.homepage.custom.CustomHobbyType
+            android:id="@+id/custom"
+            android:layout_marginTop="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+
+        <Button
+            android:id="@+id/custom_next"
+            android:text="下一步"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="650dp"
+            android:background="@drawable/style_btn_true"
+            android:layout_width="240dp"
+            android:layout_height="50dp"/>
+
+    </RelativeLayout>
+
+</layout>

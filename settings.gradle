@@ -1,0 +1,14 @@
+rootProject.name = "News"
+include ':app'
+
+include ':Net'
+
+include ':MVVMCore'
+
+include ':Common'
+include ':VideoModel'
+include ':Login'
+include ':Homepage'
+include ':Resources'
+include ':Mine'
+include ':HeadLine'

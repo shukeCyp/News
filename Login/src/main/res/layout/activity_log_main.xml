@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data class="LogMain">
+        <variable
+            name="datapage"
+            type="com.shuke.login.viewmodel.LogViewModel" />
+        <variable
+            name="mine"
+            type="com.shuke.login.LogMainActivity" />
+    </data>
+    <LinearLayout
+        android:gravity="center"
+        android:background="@drawable/qq"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:text="@={datapage.pageSource.username}"
+                android:hint="Username"
+                android:textColorHint="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </EditText>
+            <EditText
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </EditText>
+            <Button
+                android:background="@null"
+                android:text="登录"
+                android:onClick="@{(view)->mine.doSomthing(view)}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

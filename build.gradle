@@ -1,0 +1,94 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext.kotlin_version = '1.5.0-release-764'
+
+    ext {
+        kotlin_version = '1.5.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id "calces.appconfig" version "3.3.0-alpha01"
+}
+
+appConfig {
+    //开关
+    debugEnable false
+    apps {
+        app {
+            name ":app"
+            applicationId "com.bw.news"
+            applicationName ".App"
+            mainActivity ".MainActivity"
+            modules ':Homepage',
+                    ':VideoModel',
+                    ':HeadLine',
+                    ':Mine'
+        }
+    }
+
+    modules {
+
+
+        Login {
+            name ":Login"
+            applicationId "com.shuke.login"
+            isRunAlone true
+        }
+
+        Homepage {
+            name ":Homepage"
+            applicationId "com.shuke.homepage"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+
+        VideoModel {
+            name ":VideoModel"
+            applicationId "com.shuke.videomodel"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+
+        HeadLine {
+            name ":HeadLine"
+            applicationId "com.bw.headline"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+
+        Mine {
+            name ":Mine"
+            applicationId "com.bw.mine"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+    }
+}
+
+apply from:"gradles/Base.gradle"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

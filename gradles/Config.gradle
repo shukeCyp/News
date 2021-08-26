@@ -1,0 +1,22 @@
+def version =rootProject.ext.dependenciesVersion
+ext{
+    dependenciesConfig=[
+            recyclerview :"androidx.recyclerview:recyclerview:${version.recyclerview}",
+            rxjava :"io.reactivex.rxjava2:rxjava:${version.rxjava}",
+            rxandroid: "io.reactivex.rxjava2:rxandroid:${version.rxandroid}",
+            retrofit:"com.squareup.retrofit2:retrofit:${version.retrofit}",
+            retrofitgson: "com.squareup.retrofit2:converter-gson:${version.retrofitgson}",
+            retrofitrxjava :"com.squareup.retrofit2:adapter-rxjava2:${version.retrofitrxjava}",
+            okhttp :"com.squareup.okhttp3:okhttp:${version.okhttp}",
+            okhttplog :"com.squareup.okhttp3:logging-interceptor:${version.okhttplog}",
+            glide:"com.github.bumptech.glide:glide:${version.glide}",
+            okgo:"com.lzy.net:okgo:${version.okgo}",
+            coroutinescore:"org.jetbrains.kotlinx:kotlinx-coroutines-core:${version.coroutinescore}",
+            coroutinesadapter:"com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${version.coroutinesadapter}",
+            coroutinesandroid:"org.jetbrains.kotlinx:kotlinx-coroutines-android:${version.coroutinesandroid}",
+            banner: "com.youth.banner:banner:${version.banner}",
+            BaseRecyclerViewAdapterHelper:"com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.BaseRecyclerViewAdapterHelper}",
+            multidex:"androidx.multidex:multidex:${version.multidex}",
+            BottomBar:"com.ashokvarma.android:bottom-navigation-bar:${version.BottomBar}"
+    ]
+}

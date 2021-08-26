@@ -1,0 +1,21 @@
+ext{
+    dependenciesVersion=[
+            retrofit:"2.4.0",
+            recyclerview:"1.0.0",
+            rxjava:"2.2.6",
+            rxandroid:"2.1.0",
+            retrofitgson:"2.4.0",
+            retrofitrxjava:"2.3.0",
+            okhttp:"3.4.1",
+            okhttplog:"3.9.1",
+            glide:"4.12.0",
+            okgo:"3.0.4",
+            coroutinescore:"1.4.2",
+            coroutinesadapter:"0.9.2",
+            coroutinesandroid:"1.4.2",
+            banner:"1.4.10",
+            BaseRecyclerViewAdapterHelper:"3.0.0",
+            multidex:"2.0.1",
+            BottomBar:"2.0.5"
+    ]
+}

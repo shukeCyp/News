@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.IndexFragment">
+
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="#BC0909"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:textSize="22dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:text="微头条"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/index_search"
+            android:hint="搜索你想要的"
+            android:drawableLeft="@drawable/ic_action_name"
+            android:background="@drawable/search_style"
+            android:layout_marginLeft="30dp"
+            android:layout_width="250dp"
+            android:layout_height="40dp"/>
+
+        <ImageView
+            android:src="@drawable/share"
+            android:layout_marginLeft="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        app:tabMode="scrollable"
+        android:id="@+id/index_tab"
+        app:tabIndicator="@null"
+        app:tabSelectedTextColor="#BC0909"
+        android:layout_marginTop="56dp"
+        android:layout_width="match_parent"
+        android:layout_marginRight="50dp"
+        android:layout_height="40dp"/>
+
+    <ImageView
+        android:layout_marginTop="56dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/add"
+        android:layout_width="35dp"
+        android:layout_height="35dp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_marginTop="96dp"
+        android:id="@+id/index_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

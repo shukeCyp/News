@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shuke="http://schemas.android.com/apk/res-auto">
+
+    <data class="SearchActView">
+        <variable
+            name="myAct"
+            type="com.shuke.homepage.search.view.SearchActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:singleLine="true"
+            android:paddingLeft="36dp"
+            android:gravity="center_vertical"
+            android:text="户外背包"
+            android:background="@drawable/search_edittext_bg"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/fragment_homepage_search_textview"
+            android:layout_width="330dp"
+            android:layout_height="36dp"/>
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="60px"
+            android:src="@drawable/magnifying_icon"
+            android:padding="15px"
+            android:layout_alignBottom="@id/fragment_homepage_search_textview"
+            android:layout_alignLeft="@id/fragment_homepage_search_textview"
+            android:layout_alignStart="@id/fragment_homepage_search_textview"
+            android:layout_alignTop="@id/fragment_homepage_search_textview" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:src="@drawable/camera_icon"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignTop="@id/fragment_homepage_search_textview"
+            android:layout_alignBottom="@id/fragment_homepage_search_textview"
+            android:layout_alignRight="@id/fragment_homepage_search_textview"/>
+
+        <TextView
+            android:text="取消"
+            android:textSize="16sp"
+            android:layout_marginRight="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"/>
+
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="80dp"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="搜索历史"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"/>
+
+        <ImageView
+            android:onClick="@{(view) -> myAct.delAll()}"
+            android:layout_width="15dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center"
+            android:src="@drawable/lajitong" />
+
+
+        <com.shuke.homepage.customview.FluidView
+            android:id="@+id/fluidview"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:layout_width="350dp"
+            android:layout_height="200dp">
+        </com.shuke.homepage.customview.FluidView>
+    </RelativeLayout>
+</layout>
