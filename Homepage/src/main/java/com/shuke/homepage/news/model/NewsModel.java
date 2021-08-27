@@ -1,6 +1,9 @@
 package com.shuke.homepage.news.model;
 
+import androidx.lifecycle.LiveData;
+
 import com.bw.zz.RetrofitFactory;
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.api.Api;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.mvvmcore.IModel;
@@ -27,15 +30,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NewsModel implements IModel {
 
-    public void getNews(Observer<NewsEntity> news) {
+    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews() {
 
-        RetrofitFactory.getMyRetrofit()
+        return RetrofitFactory.getMyRetrofit()
                 .createRetrofit()
                 .create(Api.class)
-                .getNews(1,1,10)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(news);
+                .getNews(1,1,10);
 
     }
 }

@@ -1,10 +1,22 @@
 package com.shuke.homepage.guide.viewmodel;
 
+import android.os.Looper;
+
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+
+import com.bw.zz.protocol.BaseRespEntity;
+import com.shuke.common.ThreadUtil;
+import com.shuke.homepage.databinding.NewsType;
+import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
 import com.shuke.homepage.guide.repository.NewsTypeRepository;
 import com.shuke.mvvmcore.BaseViewModel;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observer;
 
@@ -16,6 +28,17 @@ import io.reactivex.Observer;
  * @Version 1.0
  */
 public class NewsTypeViewModel extends BaseViewModel<NewsTypeRepository> {
+    public MutableLiveData<NewsTypeEntity> liveData = new MutableLiveData<>();
+    public NewsTypeViewModel(LifecycleOwner lifecycle) {
+        super(lifecycle);
+        NewsTypeEntity newsTypeEntity = new NewsTypeEntity();
+        if (ThreadUtil.Companion.IsMainThread()) {
+            liveData.setValue(newsTypeEntity);
+        } else {
+            liveData.postValue(newsTypeEntity);
+        }
+    }
+
     @Override
     public NewsTypeRepository createRepository() {
         return new NewsTypeRepository();
@@ -31,7 +54,9 @@ public class NewsTypeViewModel extends BaseViewModel<NewsTypeRepository> {
 
     }
 
-    public void getType(Observer<NewsTypeEntity> observer) {
-        repo.getType(observer);
+    public LiveData<BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>>> getType() {
+        return repo.getType();
     }
+
+
 }

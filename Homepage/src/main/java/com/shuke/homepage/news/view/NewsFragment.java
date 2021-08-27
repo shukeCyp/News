@@ -1,9 +1,11 @@
 package com.shuke.homepage.news.view;
 
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.BR;
 import com.shuke.homepage.R;
 import com.shuke.homepage.adapter.IndexNewsAdapter;
@@ -16,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -52,43 +53,27 @@ public class NewsFragment extends MVVMFragment<MyNewsFragment, NewsViewModel>{
 
     @Override
     public void initEvent() {
+
         //请求数据
-        viewModel.getNews(new Observer<NewsEntity>() {
+        viewModel.getNews().observe(this, new Observer<BaseRespEntity<List<NewsEntity.DataBean>>>() {
             @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(NewsEntity newsEntity) {
+            public void onChanged(BaseRespEntity<List<NewsEntity.DataBean>> data) {
                 //多布局判断
-                for(int i = 0; i < newsEntity.getData().size(); i++) {
+                for(int i = 0; i < data.getData().size(); i++) {
                     if (i % 4 == 0) {
-                        newsEntity.getData().get(i).setItemType(0);
+                        data.getData().get(i).setItemType(0);
                     } else if (i % 4 == 1) {
-                        newsEntity.getData().get(i).setItemType(1);
+                        data.getData().get(i).setItemType(1);
                     } else if (i % 4 == 2) {
-                        newsEntity.getData().get(i).setItemType(2);
+                        data.getData().get(i).setItemType(2);
                     } else {
-                        newsEntity.getData().get(i).setItemType(3);
+                        data.getData().get(i).setItemType(3);
                     }
+                    IndexNewsAdapter indexNewsAdapter = new IndexNewsAdapter(data.getData());
+                    rec.setAdapter(indexNewsAdapter);
                 }
-                IndexNewsAdapter indexNewsAdapter = new IndexNewsAdapter(newsEntity.getData());
-                rec.setAdapter(indexNewsAdapter);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
             }
         });
-
-
 
     }
 

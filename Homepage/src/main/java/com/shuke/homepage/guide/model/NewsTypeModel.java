@@ -1,11 +1,20 @@
 package com.shuke.homepage.guide.model;
 
+import android.util.Log;
+
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+
 import com.bw.zz.RetrofitFactory;
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.api.Api;
+import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
 import com.shuke.mvvmcore.IModel;
 
-import io.reactivex.Observer;
+import java.util.ArrayList;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -18,13 +27,10 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class NewsTypeModel implements IModel {
 
-    public void getType(Observer<NewsTypeEntity> observer) {
-        RetrofitFactory.getMyRetrofit().createRetrofit()
+    public LiveData<BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>>> getType() {
+        return   RetrofitFactory.getMyRetrofit()
+                .createRetrofit()
                 .create(Api.class)
-                .getType()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
-
+                .getType();
     }
 }
