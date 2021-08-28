@@ -1,5 +1,6 @@
 package com.shuke.homepage.news.view;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.shuke.homepage.BR;
 import com.shuke.homepage.R;
 import com.shuke.homepage.adapter.IndexNewsAdapter;
 import com.shuke.homepage.databinding.MyNewsFragment;
+import com.shuke.homepage.details.view.Detailspage;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.news.viewmodel.NewsViewModel;
 import com.shuke.mvvmcore.view.MVVMFragment;
@@ -85,6 +87,9 @@ public class NewsFragment extends MVVMFragment<MyNewsFragment, NewsViewModel>{
                         public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
                             String newscode = data1.get(position).getNewscode();
                             Toast.makeText(getContext(), ""+newscode, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getContext(), Detailspage.class);
+                            intent.putExtra("code",newscode);
+                            startActivity(intent);
                         }
                     });
                 }

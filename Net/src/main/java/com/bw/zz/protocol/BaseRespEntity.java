@@ -12,12 +12,6 @@ public class BaseRespEntity<T> {
     private T data;
     private String msg;
 
-    public BaseRespEntity(){}
-
-    public BaseRespEntity(T data) {
-        this.data = data;
-    }
-
     public int getCode() {
         return code;
     }
@@ -39,6 +33,15 @@ public class BaseRespEntity<T> {
     }
 
     public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public BaseRespEntity() {
+    }
+
+    public BaseRespEntity(int code, T data, String msg) {
+        this.code = code;
+        this.data = data;
         this.msg = msg;
     }
 }
