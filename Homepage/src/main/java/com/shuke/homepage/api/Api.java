@@ -3,6 +3,7 @@ package com.shuke.homepage.api;
 import androidx.lifecycle.LiveData;
 
 import com.bw.zz.protocol.BaseRespEntity;
+import com.shuke.homepage.details.model.entity.DetailsEntity;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
 
@@ -27,4 +28,7 @@ public interface Api {
 
     @GET("/api/NewsType/getAllTypes")
     LiveData<BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>>> getType();
+
+    @GET("/api/NewsDetail/getNewsDetail?")
+    LiveData<BaseRespEntity<DetailsEntity>> getDeta(@Query("newscode") String newscode);
 }

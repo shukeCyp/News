@@ -1,44 +1,22 @@
 package com.shuke.homepage.fragment;
 
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-<<<<<<< HEAD
-import android.app.AlertDialog;
-import android.media.Image;
-=======
 import android.content.Context;
 import android.graphics.Color;
->>>>>>> 0857d509ab2b7c64aad901c587d94b6675bd2bfa
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewPropertyAnimator;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.CycleInterpolator;
-import android.view.animation.ScaleAnimation;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-<<<<<<< HEAD
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-=======
 import android.widget.TextView;
->>>>>>> 0857d509ab2b7c64aad901c587d94b6675bd2bfa
-import android.widget.Toast;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.android.material.tabs.TabLayout;
 import com.shuke.homepage.R;
@@ -47,8 +25,6 @@ import com.shuke.homepage.adapter.MainVpAdapter;
 import com.shuke.homepage.custom.CustomHobbyType;
 import com.shuke.homepage.guide.view.NewsTypeActivity;
 import com.shuke.homepage.news.view.NewsFragment;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,9 +55,8 @@ public class IndexFragment extends Fragment {
         tab = inflate.findViewById(R.id.index_tab);
         vp = inflate.findViewById(R.id.index_vp);
         search = inflate.findViewById(R.id.index_search);
-<<<<<<< HEAD
         additem = inflate.findViewById(R.id.additem);
-=======
+
 
         //设置回车键为确定搜索
         search.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -90,7 +65,6 @@ public class IndexFragment extends Fragment {
         //隐藏软键盘
         inputMethodManager.hideSoftInputFromWindow(search.getWindowToken(), 0);
 
->>>>>>> 0857d509ab2b7c64aad901c587d94b6675bd2bfa
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +132,6 @@ public class IndexFragment extends Fragment {
     }
 
     /**
-<<<<<<< HEAD
      * 添加item
      */
     private void Addtitle() {
@@ -170,7 +143,9 @@ public class IndexFragment extends Fragment {
         popupWindow.setContentView(inflate);
         popupWindow.setOutsideTouchable(true);
         popupWindow.showAsDropDown(additem);
-=======
+    }
+
+    /*
      * 设置每个TabLayout的View
      */
     public void setupTabIcons() {
@@ -244,6 +219,5 @@ public class IndexFragment extends Fragment {
                 view.setScaleY(cVal);
             }
         });
->>>>>>> 0857d509ab2b7c64aad901c587d94b6675bd2bfa
     }
 }

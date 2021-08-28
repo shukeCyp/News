@@ -1,11 +1,17 @@
 package com.shuke.homepage.news.view;
 
+import android.view.View;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.bw.zz.protocol.BaseRespEntity;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.shuke.homepage.BR;
 import com.shuke.homepage.R;
 import com.shuke.homepage.adapter.IndexNewsAdapter;
@@ -13,6 +19,8 @@ import com.shuke.homepage.databinding.MyNewsFragment;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.news.viewmodel.NewsViewModel;
 import com.shuke.mvvmcore.view.MVVMFragment;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,8 +77,16 @@ public class NewsFragment extends MVVMFragment<MyNewsFragment, NewsViewModel>{
                     } else {
                         data.getData().get(i).setItemType(3);
                     }
-                    IndexNewsAdapter indexNewsAdapter = new IndexNewsAdapter(data.getData());
+                    List<NewsEntity.DataBean> data1 = data.getData();
+                    IndexNewsAdapter indexNewsAdapter = new IndexNewsAdapter(data1);
                     rec.setAdapter(indexNewsAdapter);
+                    indexNewsAdapter.setOnItemClickListener(new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(@NonNull @NotNull BaseQuickAdapter<?, ?> adapter, @NonNull @NotNull View view, int position) {
+                            String newscode = data1.get(position).getNewscode();
+                            Toast.makeText(getContext(), ""+newscode, Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });

@@ -26,7 +26,7 @@ plugins {
 
 appConfig {
     //开关
-    debugEnable true
+    debugEnable false
     apps {
         app {
             name ":app"
@@ -41,12 +41,10 @@ appConfig {
     }
 
     modules {
-
-
         Login {
             name ":Login"
             applicationId "com.shuke.login"
-            isRunAlone false
+            isRunAlone true
         }
 
         Homepage {
