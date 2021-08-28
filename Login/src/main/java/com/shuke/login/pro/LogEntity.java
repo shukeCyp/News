@@ -39,11 +39,10 @@ public class LogEntity extends BaseObservable {
         this.username = username;
         notifyPropertyChanged(BR.username);
     }
-    @Bindable
     public String getPwd() {
         return pwd;
     }
-
+    @Bindable
     public void setPwd(String pwd) {
         this.pwd = pwd;
         notifyPropertyChanged(BR.pwd);

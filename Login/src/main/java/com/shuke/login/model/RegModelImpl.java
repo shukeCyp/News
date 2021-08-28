@@ -5,6 +5,9 @@ import android.os.Looper;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.bw.zz.RetrofitFactory;
+import com.bw.zz.protocol.BaseRespEntity;
+import com.shuke.login.api.RegisterApi;
 import com.shuke.login.pro.RegisterEntity;
 import com.shuke.mvvmcore.IModel;
 
@@ -17,13 +20,10 @@ import com.shuke.mvvmcore.IModel;
  * @ClassName: RegModelImpl
  */
 public class RegModelImpl implements IModel {
-    public LiveData<RegisterEntity> register(RegisterEntity entity){
-        MutableLiveData<RegisterEntity> liveData = new MutableLiveData<>();
-        if (Looper.myLooper()!=Looper.getMainLooper()){
-            liveData.postValue(entity);
-        }else{
-            liveData.setValue(entity);
-        }
-        return liveData;
+    public LiveData<BaseRespEntity<RegisterEntity>> register(RegisterEntity entity){
+        return RetrofitFactory.getMyRetrofit()
+                .createRetrofit()
+                .create(RegisterApi.class)
+                .regis(entity);
     }
 }

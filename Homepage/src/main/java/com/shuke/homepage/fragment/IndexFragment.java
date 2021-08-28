@@ -6,6 +6,8 @@ import android.animation.PropertyValuesHolder;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -21,6 +23,8 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -44,6 +48,7 @@ public class IndexFragment extends Fragment {
     TabLayout tab;
     EditText search;
     ViewPager vp;
+    ImageView additem;
     List<Fragment> fragments = new ArrayList<>();
 
 
@@ -56,7 +61,7 @@ public class IndexFragment extends Fragment {
         tab = inflate.findViewById(R.id.index_tab);
         vp = inflate.findViewById(R.id.index_vp);
         search = inflate.findViewById(R.id.index_search);
-
+        additem = inflate.findViewById(R.id.additem);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +108,28 @@ public class IndexFragment extends Fragment {
             }
         });
 
+        additem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用添加item方法
+                Addtitle();
+            }
+        });
+
         return inflate;
+    }
+
+    /**
+     * 添加item
+     */
+    private void Addtitle() {
+        PopupWindow popupWindow = new PopupWindow(getContext());
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.index_title, null);
+        //CustomHobbyType viewById = inflate.findViewById(R.id.title_item);
+        popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        popupWindow.setContentView(inflate);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.showAsDropDown(additem);
     }
 }

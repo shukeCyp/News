@@ -43,22 +43,16 @@ public class LogMainActivity extends MVVMActivity<LogMain, LogViewModel> {
 
     @Override
     public void loadData() {
-//        binding.setSecond(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
     }
 
     public void doSomthing(View view){
         String username = viewModel.pageSource.getValue().getUsername();
         String pwd = viewModel.pageSource.getValue().getPwd();
-        viewModel.log(new LogEntity(0, username, pwd, "", ""))
+        viewModel.log(new LogEntity(1, username, pwd, "", ""))
         .observe(this, new Observer<BaseRespEntity<LogEntity>>() {
             @Override
             public void onChanged(BaseRespEntity<LogEntity> logEntityBaseRespEntity) {
-
+                Toast.makeText(LogMainActivity.this, ""+logEntityBaseRespEntity.getMsg(), Toast.LENGTH_SHORT).show();
             }
         });
     }

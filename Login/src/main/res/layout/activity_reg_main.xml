@@ -5,27 +5,35 @@
     <data class="RigMain">
         <variable
             name="datapage"
-            type="com.shuke.login.viewmodel.LogViewModel" />
+            type="com.shuke.login.viewmodel.RegViewModel" />
         <variable
-            name="second"
-            type="android.view.View.OnClickListener" />
+            name="mine"
+            type="com.shuke.login.RegisterActivity" />
     </data>
     <LinearLayout
-
+        android:gravity="center"
+        android:background="@drawable/qq"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:textColorHint="#fff"
+            android:hint="You Username"
+            android:text="@={datapage.pageSource.username}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </EditText>
         <EditText
+            android:textColorHint="#fff"
+            android:hint="You Password"
+            android:inputType="textPassword"
+            android:text="@={datapage.pageSource.pwd}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </EditText>
         <Button
-            android:text="登录"
-            android:onClick="@{second}"
+            android:text="注册"
+            android:onClick="@{(view)->mine.doRegister(view)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>

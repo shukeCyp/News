@@ -40,9 +40,6 @@ public class CustomHobbyType extends ViewGroup {
     private int leftmargin = 20;
     private int topmargin = 20;
 
-
-
-
     private static final String TAG = "MyLinearView";
 
     public CustomHobbyType(Context context) {
@@ -173,7 +170,6 @@ public class CustomHobbyType extends ViewGroup {
 
                 //判断选中背景样式
                 if (isclick) {
-
                     texts.add(text.getText().toString());
                     textView.setBackgroundResource(R.drawable.style_btn_true);
                 } else {
@@ -202,7 +198,6 @@ public class CustomHobbyType extends ViewGroup {
         addView(textView);
         invalidate();
     }
-
 
     //被点击的时候        目的 :    点击其他地方,如果有被长按出现删除标记的时候  ,就把他给关掉
     @Override

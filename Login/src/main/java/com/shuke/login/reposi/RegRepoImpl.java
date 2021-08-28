@@ -2,6 +2,7 @@ package com.shuke.login.reposi;
 
 import androidx.lifecycle.LiveData;
 
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.login.model.RegModelImpl;
 import com.shuke.login.pro.RegisterEntity;
 import com.shuke.mvvmcore.BaseRepository;
@@ -18,7 +19,7 @@ import com.shuke.mvvmcore.annotation.Model;
 public class RegRepoImpl extends BaseRepository {
     @Model
     RegModelImpl regModel;
-    public LiveData<RegisterEntity> register(RegisterEntity entity){
+    public LiveData<BaseRespEntity<RegisterEntity>> register(RegisterEntity entity){
         return regModel.register(entity);
     }
 

@@ -92,6 +92,4 @@ public class NewsTypeActivity extends MVVMActivity<NewsType, NewsTypeViewModel> 
     private void initView() {
     }
 
-
-
 }

@@ -1,24 +1,15 @@
 package com.shuke.login;
 
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.lifecycle.Observer;
-
-import com.bw.zz.RetrofitFactory;
 import com.bw.zz.protocol.BaseRespEntity;
-
-import com.shuke.login.api.RegisterApi;
-import com.shuke.login.databinding.LogMain;
 import com.shuke.login.databinding.RigMain;
-import com.shuke.login.pro.LogEntity;
 import com.shuke.login.pro.RegisterEntity;
-import com.shuke.login.viewmodel.LogViewModel;
-
 import com.shuke.login.viewmodel.RegViewModel;
 import com.shuke.mvvmcore.view.MVVMActivity;
-
 import java.util.Map;
 
 public class RegisterActivity extends MVVMActivity<RigMain, RegViewModel> {
@@ -31,6 +22,7 @@ public class RegisterActivity extends MVVMActivity<RigMain, RegViewModel> {
     @Override
     public Map<Integer, Object> initVarMap(Map<Integer, Object> vars) {
         vars.put(BR.datapage,viewModel);
+        vars.put(BR.mine,this);
         return vars;
     }
 
@@ -46,20 +38,18 @@ public class RegisterActivity extends MVVMActivity<RigMain, RegViewModel> {
 
     @Override
     public void loadData() {
-        binding.setSecond(new View.OnClickListener() {
+
+    }
+
+    public void doRegister(View view){
+        String username = viewModel.pageSource.getValue().getUsername();
+        String pwd = viewModel.pageSource.getValue().getPwd();
+        Toast.makeText(this, ""+username+"  "+pwd, Toast.LENGTH_SHORT).show();
+        viewModel.register(new RegisterEntity(0,username,pwd,"",""))
+        .observe(this, new Observer<BaseRespEntity<RegisterEntity>>() {
             @Override
-            public void onClick(View v) {
-                viewModel.register(new RegisterEntity(0,"123963","0099","",""));
-                RetrofitFactory.getMyRetrofit()
-                        .createRetrofit()
-                        .create(RegisterApi.class)
-                        .log(new LogEntity(0,"123963","0099","",""))
-                        .observe(RegisterActivity.this, new Observer<BaseRespEntity<LogEntity>>() {
-                            @Override
-                            public void onChanged(BaseRespEntity<LogEntity> logEntityBaseRespEntity) {
-                                Toast.makeText(RegisterActivity.this, "跳转"+logEntityBaseRespEntity.getMsg(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+            public void onChanged(BaseRespEntity<RegisterEntity> registerEntityBaseRespEntity) {
+                startActivity(new Intent(RegisterActivity.this,LogMainActivity.class));
             }
         });
     }

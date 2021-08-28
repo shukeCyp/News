@@ -11,8 +11,8 @@
             type="com.shuke.login.LogMainActivity" />
     </data>
     <LinearLayout
-        android:gravity="center"
         android:background="@drawable/qq"
+        android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -28,8 +28,9 @@
                 android:layout_height="wrap_content">
             </EditText>
             <EditText
-                android:hint="Password"
+                android:text="@={datapage.pageSource.pwd}"
                 android:inputType="textPassword"
+                android:hint="Username"
                 android:textColorHint="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

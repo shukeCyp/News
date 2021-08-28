@@ -6,6 +6,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.login.pro.RegisterEntity;
 import com.shuke.login.reposi.RegRepoImpl;
 import com.shuke.mvvmcore.BaseViewModel;
@@ -44,7 +45,7 @@ public class RegViewModel extends BaseViewModel<RegRepoImpl> {
     public void initResource() {
 
     }
-    public LiveData<RegisterEntity> register(RegisterEntity entity){
+    public LiveData<BaseRespEntity<RegisterEntity>> register(RegisterEntity entity){
         return repo.register(entity);
     }
 }
