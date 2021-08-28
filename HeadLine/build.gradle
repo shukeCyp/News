@@ -2,6 +2,8 @@ plugins {
     id 'calces.modules'
 }
 
+def dependen = rootProject.ext.dependenciesConfig
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -11,6 +13,9 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+
+        //依赖超过65536
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,7 +37,14 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation project(path: ':MVVMCore')
+    implementation project(path: ':Net')
+    implementation project(path: ':Common')
+    implementation project(path: ':Resources')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //依赖超过65536
+    implementation dependen.multidex
 }

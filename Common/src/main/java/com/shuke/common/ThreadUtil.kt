@@ -17,7 +17,7 @@ class ThreadUtil {
         /**
          * 是否是主线程
          */
-        fun IsMainThread(runnable: Runnable): Boolean {
+        fun IsMainThread(): Boolean {
             return Looper.getMainLooper().thread == Thread.currentThread()
         }
         /**

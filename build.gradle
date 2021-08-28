@@ -46,35 +46,35 @@ appConfig {
         Login {
             name ":Login"
             applicationId "com.shuke.login"
-            isRunAlone true
+            isRunAlone false
         }
 
         Homepage {
             name ":Homepage"
             applicationId "com.shuke.homepage"
-            mainActivity ".MainActivity"
-            isRunAlone true
+            mainActivity ".guide.view.NewsTypeActivity"
+            isRunAlone false
         }
 
         VideoModel {
             name ":VideoModel"
             applicationId "com.shuke.videomodel"
             mainActivity ".MainActivity"
-            isRunAlone true
+            isRunAlone false
         }
 
         HeadLine {
             name ":HeadLine"
             applicationId "com.bw.headline"
             mainActivity ".MainActivity"
-            isRunAlone true
+            isRunAlone false
         }
 
         Mine {
             name ":Mine"
             applicationId "com.bw.mine"
             mainActivity ".MainActivity"
-            isRunAlone true
+            isRunAlone false
         }
     }
 }

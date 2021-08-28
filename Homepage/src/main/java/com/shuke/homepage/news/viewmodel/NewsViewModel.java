@@ -3,7 +3,9 @@ package com.shuke.homepage.news.viewmodel;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.news.repository.NewsRepository;
 import com.shuke.mvvmcore.BaseRepository;
@@ -39,8 +41,8 @@ public class NewsViewModel extends BaseViewModel<NewsRepository> {
 
     }
 
-    public void getNews(Observer<NewsEntity> news) {
-        repo.getNews(news);
+    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews() {
+        return repo.getNews();
     }
 
 }

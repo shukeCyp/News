@@ -1,10 +1,17 @@
 package com.shuke.homepage.api;
 
+import androidx.lifecycle.LiveData;
+
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -16,8 +23,8 @@ import retrofit2.http.Query;
  */
 public interface Api {
     @GET("api/News/getNews?")
-    Observable<NewsEntity> getNews(@Query("newstype") int type, @Query("pagenum") int num, @Query("pagesize") int size);
+    LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews(@Query("newstype") int type, @Query("pagenum") int num, @Query("pagesize") int size);
 
-    @GET("api/NewsType/getAllTypes")
-    Observable<NewsTypeEntity> getType();
+    @GET("/api/NewsType/getAllTypes")
+    LiveData<BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>>> getType();
 }

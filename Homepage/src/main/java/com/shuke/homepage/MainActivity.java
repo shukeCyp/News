@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.shuke.homepage.adapter.MainVpAdapter;
+import com.shuke.homepage.fragment.ElseFragment;
 import com.shuke.homepage.fragment.IndexFragment;
 
 import java.util.ArrayList;
@@ -39,12 +40,6 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
-//        ViewGroup viewById = this.findViewById(android.R.id.content);
-//        View childAt = viewById.getChildAt(0);
-//        if (childAt != null && Build.VERSION.SDK_INT >= 14) {
-//            childAt.setFitsSystemWindows(true);
-//        }
 
         initView();
 

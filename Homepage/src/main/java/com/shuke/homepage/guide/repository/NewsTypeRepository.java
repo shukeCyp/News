@@ -1,9 +1,15 @@
 package com.shuke.homepage.guide.repository;
 
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+
+import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
 import com.shuke.homepage.guide.model.NewsTypeModel;
 import com.shuke.mvvmcore.BaseRepository;
 import com.shuke.mvvmcore.annotation.Model;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observer;
 
@@ -19,8 +25,8 @@ public class NewsTypeRepository extends BaseRepository {
     @Model
     private NewsTypeModel mModel;
 
-    public void getType(Observer<NewsTypeEntity> observer) {
-        mModel.getType(observer);
+    public LiveData<BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>>> getType( ) {
+        return mModel.getType();
     }
 
 }
