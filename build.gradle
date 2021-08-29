@@ -44,14 +44,14 @@ appConfig {
         Login {
             name ":Login"
             applicationId "com.shuke.login"
-            isRunAlone true
+            isRunAlone false
         }
 
         Homepage {
             name ":Homepage"
             applicationId "com.shuke.homepage"
             mainActivity ".guide.view.NewsTypeActivity"
-            isRunAlone false
+            isRunAlone true
         }
 
         VideoModel {

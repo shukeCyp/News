@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
 }
 
+def url = rootProject.ext.urls
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -18,8 +20,13 @@ android {
 
     buildTypes {
         release {
+            buildConfigField("String","BASEURL","\"" + url.online + "\"")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField("String","BASEURL","\"" + url.offline + "\"")
         }
     }
     compileOptions {

@@ -19,4 +19,10 @@ ext{
             multidex:"androidx.multidex:multidex:${version.multidex}",
             BottomBar:"com.ashokvarma.android:bottom-navigation-bar:${version.BottomBar}"
     ]
+
+    urls=[
+            offline:"http://39.98.153.96:8080/",
+            online:"http://39.98.153.96:8080/",
+            test:"http://39.98.153.96:8080/"
+    ]
 }
