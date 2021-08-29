@@ -13,6 +13,7 @@
         android:theme="@style/Theme.News">
         <activity android:name=".search.view.SearchActivity"></activity>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".details.view.Detailspage"></activity>
     </application>
 
 </manifest>
