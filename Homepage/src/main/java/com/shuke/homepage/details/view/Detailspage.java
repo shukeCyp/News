@@ -43,7 +43,6 @@ public class Detailspage extends MVVMActivity<DetaPage,DetaViewModel> {
             public void onChanged(BaseRespEntity<DetailsEntity> detailsEntityBaseRespEntity) {
                 viewModel.liveData.setValue(detailsEntityBaseRespEntity.getData());
                 String url = detailsEntityBaseRespEntity.getData().getUrl();
-                Toast.makeText(Detailspage.this, ""+url, Toast.LENGTH_SHORT).show();
                 actDetailWebView.loadUrl(url);
             }
         });

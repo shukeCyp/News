@@ -56,7 +56,8 @@
             android:clickable="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RelativeLayout
@@ -113,17 +114,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 </com.tencent.smtt.sdk.WebView>
-            </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/ic_baseline_chevron_left_24"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </ImageView>
+                </LinearLayout>
+            </LinearLayout>
         </ScrollView>
-
-
-
         <RelativeLayout
             android:background="#A08E8E"
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <EditText
+                android:background="@drawable/search_edittext_bg"
                 android:id="@+id/act_detail_write"
                 android:hint="写评论..."
                 android:textSize="14dp"
