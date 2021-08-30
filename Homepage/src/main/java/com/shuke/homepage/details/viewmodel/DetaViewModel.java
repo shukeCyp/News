@@ -5,14 +5,16 @@ import android.os.Looper;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import com.bw.zz.protocol.BaseRespEntity;
 import com.shuke.homepage.details.model.entity.DetailsEntity;
 import com.shuke.homepage.details.repository.DetailsRepo;
+import com.shuke.homepage.entity.CommentEntity;
 import com.shuke.mvvmcore.BaseViewModel;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 /**
  * @CreateDate: 2021/8/28 9:03
@@ -24,6 +26,8 @@ import org.jetbrains.annotations.NotNull;
  */
 public class DetaViewModel extends BaseViewModel<DetailsRepo> {
     public MutableLiveData<DetailsEntity> liveData = new MutableLiveData<>();
+    public MutableLiveData<CommentEntity> pageViewModel=new MutableLiveData<>();
+
     @NotNull
     @Override
     public DetailsRepo createRepository() {
@@ -32,11 +36,14 @@ public class DetaViewModel extends BaseViewModel<DetailsRepo> {
 
     public DetaViewModel(@NotNull LifecycleOwner lifecycle) {
         super(lifecycle);
+        CommentEntity commentEntity = new CommentEntity();
         DetailsEntity detailsEntity = new DetailsEntity();
         if (Looper.myLooper()!=Looper.getMainLooper()){
             liveData.postValue(detailsEntity);
+            pageViewModel.postValue(commentEntity);
         }else{
             liveData.setValue(detailsEntity);
+            pageViewModel.setValue(commentEntity);
         }
     }
 
@@ -51,5 +58,9 @@ public class DetaViewModel extends BaseViewModel<DetailsRepo> {
     }
     public LiveData<BaseRespEntity<DetailsEntity>> detail(String newcode){
        return repo.detail(newcode);
+    }
+
+    public LiveData<BaseRespEntity<ArrayList<CommentEntity>>> comment(String newsCode, Integer parentid, Integer userid){
+        return repo.comment(newsCode,parentid,userid);
     }
 }

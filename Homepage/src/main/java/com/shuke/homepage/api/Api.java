@@ -3,6 +3,7 @@ package com.shuke.homepage.api;
 import androidx.lifecycle.LiveData;
 
 import com.bw.zz.protocol.BaseRespEntity;
+import com.shuke.homepage.entity.CommentEntity;
 import com.shuke.homepage.details.model.entity.DetailsEntity;
 import com.shuke.homepage.entity.NewsEntity;
 import com.shuke.homepage.entity.NewsTypeEntity;
@@ -10,9 +11,7 @@ import com.shuke.homepage.entity.NewsTypeEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 /**
@@ -31,4 +30,7 @@ public interface Api {
 
     @GET("/api/NewsDetail/getNewsDetail?")
     LiveData<BaseRespEntity<DetailsEntity>> getDeta(@Query("newscode") String newscode);
+
+    @GET("api/Comment/getComment?")
+    LiveData<BaseRespEntity<ArrayList<CommentEntity>>> getCommtexs(@Query("newscode") String newscode, @Query("parentid") int parentid, @Query("userid") int userid);
 }

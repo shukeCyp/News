@@ -6,6 +6,7 @@
             name="datasou"
             type="com.shuke.homepage.details.viewmodel.DetaViewModel" />
     </data>
+
     <RelativeLayout
         android:clipToPadding="true"
         android:fitsSystemWindows="true"
@@ -16,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </ViewStub>
+
         <RelativeLayout
             android:id="@+id/head"
             android:orientation="horizontal"
@@ -48,14 +50,6 @@
         </RelativeLayout>
 
 
-        <ScrollView
-            android:id="@+id/act_detail_ScrollView"
-            android:layout_below="@id/head"
-            android:fitsSystemWindows="true"
-            android:fadingEdge="vertical"
-            android:clickable="false"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -107,14 +101,40 @@
                         android:textSize="14dp">
                     </TextView>
                 </RelativeLayout>
-                <com.tencent.smtt.sdk.WebView
-                    android:id="@+id/act_detail_WebView"
-                    android:layout_below="@+id/head_layout"
+                <ScrollView
+                    android:layout_marginTop="150dp"
+                    android:id="@+id/act_detail_ScrollView"
+                    android:fitsSystemWindows="true"
+                    android:fadingEdge="vertical"
+                    android:clickable="false"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                </com.tencent.smtt.sdk.WebView>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.tencent.smtt.sdk.WebView
+                            android:id="@+id/act_detail_WebView"
+                            android:layout_below="@+id/head_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                        </com.tencent.smtt.sdk.WebView>
+                        <TextView
+                            android:textSize="30dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="评论"
+                            ></TextView>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            ></androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+
+                </ScrollView>
+
             </RelativeLayout>
-        </ScrollView>
 
 
 
@@ -160,5 +180,16 @@
                 android:layout_height="30dp">
             </ImageView>
         </RelativeLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </LinearLayout>
+
     </RelativeLayout>
+
+
 </layout>
