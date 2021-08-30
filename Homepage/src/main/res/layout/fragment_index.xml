@@ -44,7 +44,6 @@
         app:tabMode="scrollable"
         android:id="@+id/index_tab"
         app:tabIndicator="@null"
-        app:tabSelectedTextColor="#BC0909"
         android:layout_marginTop="56dp"
         android:layout_width="match_parent"
         android:layout_marginRight="50dp"

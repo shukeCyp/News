@@ -176,7 +176,6 @@ public class CustomHobbyType extends ViewGroup {
                     for (int i = 0; i < texts.size(); i++) {
                         if (text.getText().toString().equals(texts.get(i))) {
                             texts.remove(i);
-                            Toast.makeText(getContext(), "删除", Toast.LENGTH_SHORT).show();
                         }
                     }
                     textView.setBackgroundResource(R.drawable.style_btn_false);

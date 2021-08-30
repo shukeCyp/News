@@ -26,7 +26,7 @@ plugins {
 
 appConfig {
     //开关
-    debugEnable false
+    debugEnable true
     apps {
         app {
             name ":app"
