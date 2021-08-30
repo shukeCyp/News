@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="HeadLineFm">
+        <variable
+            name="viewmodel"
+            type="com.bw.headline.viewmodel.HeadLineViewModel" />
+        <variable
+            name="headlineFrag"
+            type="com.bw.headline.view.HeadLineFragment" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:background="#BC2A2A"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <TextView
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:text="微头条"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_marginRight="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/add"
+                android:layout_width="32dp"
+                android:layout_height="32dp"/>
+        </RelativeLayout>
+        <com.bw.headline.common.BindingRecyclerView
+            adapter="@{headlineFrag.adapter}"
+            android:id="@+id/headline_fragment_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</layout>
