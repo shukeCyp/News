@@ -25,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ImageView
+                android:onClick="@{view -> headlineFrag.JumpToAddHeaLine(view)}"
                 android:layout_marginRight="24dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"

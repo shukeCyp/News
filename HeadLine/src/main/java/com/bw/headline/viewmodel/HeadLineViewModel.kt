@@ -2,7 +2,6 @@ package com.bw.headline.viewmodel
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.bw.headline.entity.HeadLineRespEntity
 import com.bw.headline.repository.HeadLineRepository
 import com.bw.zz.protocol.BaseRespEntity
@@ -43,5 +42,7 @@ class HeadLineViewModel : BaseViewModel<HeadLineRepository> {
     fun getHeadLineList():LiveData<BaseRespEntity<MutableList<HeadLineRespEntity>>>{
         return repo.getHeadLineList()
     }
+
+
 
 }

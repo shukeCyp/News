@@ -1,6 +1,8 @@
 package com.bw.news;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
@@ -15,7 +18,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.bw.news.adapter.MainViewPagerAdapter;
-import com.shuke.homepage.fragment.IndexFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 .initialise();
         //BottomView 和 ViewPager联动
         fragments = new ArrayList<>();
-        fragments.add(new IndexFragment());
         fragments.add(new BlankFragment());
         fragments.add(new BlankFragment());
         fragments.add(new BlankFragment());

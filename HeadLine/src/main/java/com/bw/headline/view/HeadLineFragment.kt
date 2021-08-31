@@ -1,19 +1,20 @@
 package com.bw.headline.view
 
-import android.util.Log
+import android.content.Intent
 import android.util.SparseArray
+import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.bw.headline.BR
 import com.bw.headline.R
+import com.bw.headline.addheadline.view.AddHeadLineAct
 import com.bw.headline.common.BaseRecyclerViewAdapter
 import com.bw.headline.common.BaseViewHolder
 import com.bw.headline.databinding.HeadLineFm
 import com.bw.headline.entity.HeadLineRespEntity
 import com.bw.headline.viewmodel.HeadLineViewModel
 import com.bw.zz.protocol.BaseRespEntity
-import com.shuke.common.ThreadUtil
 import com.shuke.mvvmcore.view.MVVMFragment
 
 /**
@@ -73,6 +74,11 @@ class HeadLineFragment : MVVMFragment<HeadLineFm,HeadLineViewModel>(){
         return R.layout.headline_fragment_layout
     }
 
-
-
+    /**
+     * 点击加号跳转到发布头条页面
+     */
+    fun JumpToAddHeaLine(view: View){
+        var intent: Intent = Intent(view.context, AddHeadLineAct::class.java)
+        startActivity(intent)
+    }
 }
