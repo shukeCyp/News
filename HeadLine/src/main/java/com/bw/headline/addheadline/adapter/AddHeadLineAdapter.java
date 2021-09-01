@@ -1,6 +1,7 @@
 package com.bw.headline.addheadline.adapter;
 
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bw.headline.R;
@@ -26,6 +27,11 @@ class AddHeadLineAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, String s) {
-        Glide.with(getContext()).load(s).into((ImageView) baseViewHolder.findView(R.id.addheadline_item_image));
+        if (s.equals("jia")){
+            Glide.with(getContext()).load(R.drawable.add).into((ImageView) baseViewHolder.findView(R.id.addheadline_item_image));
+        }else{
+            Glide.with(getContext()).load(s).into((ImageView) baseViewHolder.findView(R.id.addheadline_item_image));
+        }
+
     }
 }
