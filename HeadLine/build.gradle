@@ -75,6 +75,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'com.aliyun.dpa:oss-android-sdk:2.9.5'
+
+    implementation 'com.github.wildma:PictureSelector:1.1.1'
 }
 repositories {
     mavenCentral()

@@ -18,6 +18,6 @@ class AddHeadLineViewModel : BaseViewModel<AddHeadLineRepository>() {
     }
 
     override fun initResource() {
-        TODO("Not yet implemented")
+
     }
 }
