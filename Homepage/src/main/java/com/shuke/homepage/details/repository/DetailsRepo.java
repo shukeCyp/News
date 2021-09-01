@@ -21,7 +21,13 @@ import com.shuke.mvvmcore.annotation.Model;
 public class DetailsRepo extends BaseRepository {
     @Model
     DetailsModel detailsModel;
+    //新闻详情
     public LiveData<BaseRespEntity<DetailsEntity>> detail(String newcode){
         return detailsModel.detail(newcode);
+    }
+
+    //保存评论
+    public LiveData<BaseRespEntity<String>> push(String content, String newsCode, String commitTime, int parentId, int userId) {
+        return detailsModel.push(content, newsCode, commitTime, parentId, userId);
     }
 }

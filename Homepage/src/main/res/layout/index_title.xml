@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#C3FFFFFF"
     android:layout_height="match_parent">
-<!--    <com.shuke.homepage.custom.CustomHobbyType-->
-<!--        android:id="@+id/title_item"-->
-<!--        android:layout_marginTop="350dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="250dp"/>-->
-    <ImageView
-        android:src="@drawable/beauty"
+
+    <com.shuke.homepage.custom.CustomHobbyType
+        android:layout_gravity="center"
+        android:id="@+id/title_item"
         android:layout_width="match_parent"
-        android:layout_height="150dp"></ImageView>
+        android:layout_height="215dp"/>
+
 </LinearLayout>

@@ -11,11 +11,6 @@
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ViewStub
-            android:id="@+id/loadPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ViewStub>
         <RelativeLayout
             android:id="@+id/head"
             android:orientation="horizontal"
@@ -112,7 +107,7 @@
                     android:id="@+id/act_detail_WebView"
                     android:layout_below="@+id/head_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="570dp">
                 </com.tencent.smtt.sdk.WebView>
             </LinearLayout>
         </ScrollView>
@@ -142,7 +137,7 @@
                 android:layout_height="30dp">
             </ImageView>
             <ImageView
-                android:src="@drawable/ic_baseline_star_outline_24"
+                android:src="@drawable/collect"
                 android:id="@+id/act_detail_collect"
                 android:layout_marginLeft="28dp"
                 android:layout_toRightOf="@id/act_detail_say"
@@ -159,5 +154,12 @@
                 android:layout_height="30dp">
             </ImageView>
         </RelativeLayout>
+        <ViewStub
+            android:id="@+id/loadPage"
+            android:layout="@layout/loadnews_transition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ViewStub>
     </RelativeLayout>
+
 </layout>

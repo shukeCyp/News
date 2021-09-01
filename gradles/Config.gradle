@@ -17,7 +17,11 @@ ext{
             banner: "com.youth.banner:banner:${version.banner}",
             BaseRecyclerViewAdapterHelper:"com.github.CymChad:BaseRecyclerViewAdapterHelper:${version.BaseRecyclerViewAdapterHelper}",
             multidex:"androidx.multidex:multidex:${version.multidex}",
-            BottomBar:"com.ashokvarma.android:bottom-navigation-bar:${version.BottomBar}"
+            BottomBar:"com.ashokvarma.android:bottom-navigation-bar:${version.BottomBar}",
+            SmartLayout:"com.scwang.smart:refresh-layout-kernel:${version.SmartLayout}",
+            SmartHeader:"com.scwang.smart:refresh-header-classics:${version.SmartHeader}",
+            Utils:"com.blankj:utilcode:${version.Utils}",
+            Transition:"com.zyao89:zloading:${version.Transition}"
     ]
 
     urls=[

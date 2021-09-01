@@ -41,8 +41,8 @@ public class NewsViewModel extends BaseViewModel<NewsRepository> {
 
     }
 
-    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews() {
-        return repo.getNews();
+    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews(int num) {
+        return repo.getNews(num);
     }
 
 }

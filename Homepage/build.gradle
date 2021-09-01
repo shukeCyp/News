@@ -71,6 +71,12 @@ dependencies {
     implementation dependen.glide
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation dependen.BaseRecyclerViewAdapterHelper
+    implementation dependen.Utils
+    //过场动画
+    implementation dependen.Transition
+    //刷新
+    implementation dependen.SmartLayout
+    implementation dependen.SmartHeader
 
     //依赖超过65536
     implementation dependen.multidex

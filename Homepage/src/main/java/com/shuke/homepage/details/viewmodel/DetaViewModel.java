@@ -49,7 +49,14 @@ public class DetaViewModel extends BaseViewModel<DetailsRepo> {
     public void initResource() {
 
     }
+
+    //新闻详情
     public LiveData<BaseRespEntity<DetailsEntity>> detail(String newcode){
        return repo.detail(newcode);
+    }
+
+    //保存评论
+    public LiveData<BaseRespEntity<String>> push(String content, String newsCode, String commitTime, int parentId, int userId) {
+        return repo.push(content, newsCode, commitTime, parentId, userId);
     }
 }

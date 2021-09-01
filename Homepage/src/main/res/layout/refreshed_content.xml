@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/OnRefreshed_text"
+        android:background="#A358B1BC"
+        android:gravity="center"
+        android:textColor="#14A7EF"
+        android:textSize="22dp"
+        android:text="微头条推荐引擎有10条更新完成"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        tools:ignore="RtlCompat" />
+
+
+</RelativeLayout>

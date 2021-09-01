@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.google.android.material.tabs.TabLayout;
 import com.shuke.homepage.R;
@@ -57,7 +61,6 @@ public class IndexFragment extends Fragment {
         search = inflate.findViewById(R.id.index_search);
         additem = inflate.findViewById(R.id.additem);
 
-
         //设置回车键为确定搜索
         search.setImeOptions(EditorInfo.IME_ACTION_DONE);
         //初始化软键盘
@@ -65,12 +68,6 @@ public class IndexFragment extends Fragment {
         //隐藏软键盘
         inputMethodManager.hideSoftInputFromWindow(search.getWindowToken(), 0);
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/homepage/searchActivity").navigation();
-            }
-        });
 
         //接收选中的兴趣
         titles = CustomHobbyType.texts;
@@ -82,18 +79,32 @@ public class IndexFragment extends Fragment {
         fragments.add(new NewsFragment());
         fragments.add(new ElseFragment());
 
-        vp.setAdapter(new IndexVpAdapter(getActivity().getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragments,titles));
-        //TabLayout与ViewPage联动
-        tab.setupWithViewPager(vp);
         //将选中的数据循环添加到tablayout中
         for (int i = 0; i < titles.size(); i++) {
             tab.addTab(tab.newTab().setText(titles.get(i)));
         }
 
+        vp.setAdapter(new IndexVpAdapter(getActivity().getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,fragments));
+
         //为tablayout里每一个子选项设置view视图。
-        setupTabIcons();
+        setupTabIcons(tab);
 
+        //搜索
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/homepage/searchActivity").navigation();
+            }
+        });
 
+        //＋
+        additem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //调用添加item方法
+                Addtitle();
+            }
+        });
 
         //tablayout选择监听
         tab.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -120,14 +131,23 @@ public class IndexFragment extends Fragment {
             }
         });
 
-        additem.setOnClickListener(new View.OnClickListener() {
+        //滑动ViewPager使得tablayout改变
+        vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onClick(View v) {
-                //调用添加item方法
-                Addtitle();
+            public void onPageScrolled(int posi, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int posi) {
+                tab.selectTab(tab.getTabAt(posi));
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
-
         return inflate;
     }
 
@@ -137,7 +157,11 @@ public class IndexFragment extends Fragment {
     private void Addtitle() {
         PopupWindow popupWindow = new PopupWindow(getContext());
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.index_title, null);
-        //CustomHobbyType viewById = inflate.findViewById(R.id.title_item);
+        CustomHobbyType custom = inflate.findViewById(R.id.title_item);
+        for (int i = 0; i < NewsTypeActivity.data.size(); i++) {
+            custom.add(NewsTypeActivity.data.get(i).getTypename());
+        }
+
         popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         popupWindow.setContentView(inflate);
@@ -148,7 +172,7 @@ public class IndexFragment extends Fragment {
     /*
      * 设置每个TabLayout的View
      */
-    public void setupTabIcons() {
+    public void setupTabIcons(TabLayout tab) {
         for (int i = 0; i < titles.size(); i++) {
             tab.getTabAt(i).setCustomView(getTabView(i));
         }
