@@ -65,7 +65,7 @@ appConfig {
             name ":HeadLine"
             applicationId "com.bw.headline"
             mainActivity ".MainActivity"
-            isRunAlone false
+            isRunAlone true
         }
 
         Mine {

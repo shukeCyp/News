@@ -30,12 +30,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NewsModel implements IModel {
 
-    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews() {
+    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews(int num) {
 
         return RetrofitFactory.getMyRetrofit()
                 .createRetrofit()
                 .create(Api.class)
-                .getNews(1,1,10);
+                .getNews(1,num,10);
 
     }
 }

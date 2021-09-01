@@ -149,6 +149,7 @@ public class CustomHobbyType extends ViewGroup {
         textView.setTextColor(Color.WHITE);
         textView.setBackgroundResource(R.drawable.style_btn_false);
         LinearLayoutCompat.LayoutParams layoutParams = new LinearLayoutCompat.LayoutParams(250, 80);
+
         textView.setLayoutParams(layoutParams);
         textView.setOnLongClickListener(new OnLongClickListener() {
             @Override

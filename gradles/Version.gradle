@@ -16,6 +16,10 @@ ext{
             banner:"1.4.10",
             BaseRecyclerViewAdapterHelper:"3.0.0",
             multidex:"2.0.1",
-            BottomBar:"2.0.5"
+            BottomBar:"2.0.5",
+            SmartLayout:"2.0.3",
+            SmartHeader:"2.0.3",
+            Utils:"1.30.6",
+            Transition:'1.0.11'
     ]
 }

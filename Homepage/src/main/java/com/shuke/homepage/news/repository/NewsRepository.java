@@ -24,8 +24,8 @@ public class NewsRepository extends BaseRepository{
     @Model
     private NewsModel mModel;
 
-    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews() {
-        return mModel.getNews();
+    public LiveData<BaseRespEntity<List<NewsEntity.DataBean>>> getNews(int num) {
+        return mModel.getNews(num);
     }
 
 }

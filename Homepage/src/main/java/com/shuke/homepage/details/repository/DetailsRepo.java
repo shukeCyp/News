@@ -22,17 +22,21 @@ import java.util.ArrayList;
 public class DetailsRepo extends BaseRepository {
     @Model
     DetailsModel detailsModel;
+    //新闻详情
     public LiveData<BaseRespEntity<DetailsEntity>> detail(String newcode){
         return detailsModel.detail(newcode);
     }
 
-    /**
-     *
-     */
-    @Model
-    DetailsModel commentModel;
 
-    public LiveData<BaseRespEntity<ArrayList<CommentEntity>>>  comment(String newsCode, Integer parentid, Integer userid){
-        return commentModel.comment(newsCode,parentid,userid);
+    /**
+     *获取评论
+     */
+    public LiveData<BaseRespEntity<ArrayList<CommentEntity>>>  comment(String newsCode, Integer parentid, Integer userid) {
+        return detailsModel.comment(newsCode, parentid, userid);
+    }
+
+    //保存评论
+    public LiveData<BaseRespEntity<String>> push(String content, String newsCode, String commitTime, int parentId, int userId) {
+        return detailsModel.push(content, newsCode, commitTime, parentId, userId);
     }
 }

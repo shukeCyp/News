@@ -36,6 +36,8 @@ public class NewsTypeActivity extends MVVMActivity<NewsType, NewsTypeViewModel> 
 
     private CustomHobbyType custom;
     private Button customNext;
+    public static ArrayList<NewsTypeEntity.DataBean> data = new ArrayList<>();
+
 
     @Override
     public Map<Integer, Object> initVarMap(Map<Integer, Object> vars) {
@@ -67,7 +69,7 @@ public class NewsTypeActivity extends MVVMActivity<NewsType, NewsTypeViewModel> 
             @Override
             public void onChanged(BaseRespEntity<ArrayList<NewsTypeEntity.DataBean>> entity) {
                 Log.d("123", "onChanged: " + entity.getData().toString());
-                ArrayList<NewsTypeEntity.DataBean> data = entity.getData();
+                data = entity.getData();
 
                 for (int i = 0; i < data.size(); i++){
                     custom.add(data.get(i).getTypename());

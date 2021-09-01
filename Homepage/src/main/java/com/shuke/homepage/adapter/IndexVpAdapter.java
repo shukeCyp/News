@@ -1,8 +1,13 @@
 package com.shuke.homepage.adapter;
 
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -15,11 +20,10 @@ import java.util.List;
  */
 public class IndexVpAdapter extends FragmentStatePagerAdapter {
     List<Fragment> fragments;
-    List<String> titles;
-    public IndexVpAdapter(FragmentManager fm, int behavior, List<Fragment> fragments, List<String> titles) {
+
+    public IndexVpAdapter(FragmentManager fm, int behavior, List<Fragment> fragments) {
         super(fm, behavior);
         this.fragments = fragments;
-        this.titles = titles;
     }
 
     @Override
@@ -32,8 +36,4 @@ public class IndexVpAdapter extends FragmentStatePagerAdapter {
         return fragments.size();
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return titles.get(position);
-    }
 }

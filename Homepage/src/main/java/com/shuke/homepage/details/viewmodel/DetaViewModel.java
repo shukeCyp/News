@@ -56,11 +56,20 @@ public class DetaViewModel extends BaseViewModel<DetailsRepo> {
     public void initResource() {
 
     }
+
+    //新闻详情
     public LiveData<BaseRespEntity<DetailsEntity>> detail(String newcode){
        return repo.detail(newcode);
     }
 
-    public LiveData<BaseRespEntity<ArrayList<CommentEntity>>> comment(String newsCode, Integer parentid, Integer userid){
-        return repo.comment(newsCode,parentid,userid);
+    //获取评论
+    public LiveData<BaseRespEntity<ArrayList<CommentEntity>>> comment(String newsCode, Integer parentid, Integer userid) {
+        return repo.comment(newsCode, parentid, userid);
+    }
+
+    //保存评论
+    public LiveData<BaseRespEntity<String>> push(String content, String newsCode, String commitTime, int parentId, int userId) {
+        return repo.push(content, newsCode, commitTime, parentId, userId);
+
     }
 }
